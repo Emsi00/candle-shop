@@ -1,7 +1,12 @@
-import "./App.css";
-
+import MainNavigation from "./MainNavigation/MainNavigation";
+import { Provider } from "react-redux";
+import store from "./Redux/store";
 function App() {
-  return <div>Hi</div>;
+  return (
+    <Provider store={store}>
+      <MainNavigation />
+    </Provider>
+  );
 }
 
 export default App;
