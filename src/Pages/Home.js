@@ -7,9 +7,11 @@ import CartButton from "../Components/CartButton";
 import { useSelector } from "react-redux";
 import ShopCart from "../Components/ShopCart";
 import { useState } from "react";
+import FacebookIcon from "../Components/FacebookIcon";
+import InstagramIcon from "../Components/InstagramIcon";
 const Home = () => {
   const [isCart, setIsCart] = useState(false);
-  const productsAmount = useSelector((state) => {
+  const productsQuantity = useSelector((state) => {
     if (state.cart.products.length !== 0) {
       let shopCartAmount = 0;
       state.cart.products.map((element) => (shopCartAmount += element.amount));
@@ -26,7 +28,7 @@ const Home = () => {
       {isCart && <ShopCart onClick={showShopCart} />}
       <div className="d-flex flex-column homePage">
         <div className="d-flex justify-content-center p-2">
-          <img src={require("../Pages/Images/banner.jpg")} width></img>
+          <img src={require("../Pages/Images/banner.jpg")}></img>
         </div>
         <div className="d-flex justify-content-center">
           <hr
@@ -75,7 +77,9 @@ const Home = () => {
             style={{ width: "90%", height: "10px" }}
           ></hr>
         </div>
-        <CartButton onClick={showShopCart}>{productsAmount}</CartButton>
+        <CartButton onClick={showShopCart}>{productsQuantity}</CartButton>
+        <FacebookIcon />
+        <InstagramIcon />
         <Outlet />
       </div>
     </>

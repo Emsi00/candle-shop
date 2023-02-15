@@ -30,7 +30,7 @@ const ShopCartDiv = styled.div`
   flex-direction: column;
   align-items: center;
 `;
-const UpperDiv = styled.div`
+const UpperDivShopCart = styled.div`
   width: 80%;
   height: 70%;
   border: 1px solid black;
@@ -38,7 +38,7 @@ const UpperDiv = styled.div`
   flex-direction: column;
   align-items: center;
 `;
-const LowerDiv = styled.div`
+const LowerDivShopCart = styled.div`
   width: 80%;
   height: 20%;
   display: flex;
@@ -67,7 +67,7 @@ const ShopCart = ({ onClick, children }) => {
   return (
     <BackDrop>
       <ShopCartDiv>
-        <UpperDiv>
+        <UpperDivShopCart>
           {products.map((element, index) => {
             return (
               <SingleProductInUpperDiv id={element.id}>
@@ -115,8 +115,8 @@ const ShopCart = ({ onClick, children }) => {
               </SingleProductInUpperDiv>
             );
           })}
-        </UpperDiv>
-        <LowerDiv>
+        </UpperDivShopCart>
+        <LowerDivShopCart>
           {" "}
           <Button
             className="p-3"
@@ -132,7 +132,7 @@ const ShopCart = ({ onClick, children }) => {
           >
             Kupuje
           </Button>
-        </LowerDiv>
+        </LowerDivShopCart>
       </ShopCartDiv>
     </BackDrop>
   );
