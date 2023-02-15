@@ -1,12 +1,12 @@
 import { Button } from "react-bootstrap";
 import { Bag, Cart, Square } from "react-bootstrap-icons";
-const CartButton = ({ children }) => {
+const CartButton = ({ children, onClick }) => {
   return (
     <div
       className="fixed-bottom sticky"
       style={{ marginLeft: "5px", marginBottom: "5px" }}
     >
-      <Button className="d-flex align-items-center">
+      <Button className="d-flex align-items-center" onClick={onClick}>
         <Bag height="16px" width="16px" className="fa-10x m-1" />
         Twój koszyk
         <div

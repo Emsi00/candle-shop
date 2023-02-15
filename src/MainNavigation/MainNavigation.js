@@ -3,7 +3,7 @@ import Home from "../Pages/Home";
 import AboutUs from "../Pages/AboutUs";
 import Promotions from "../Pages/Promotions";
 import Sets from "../Pages/Sets";
-import SoyCandles from "../Pages/SoyCandles";
+import SoyCandles from "../Pages/SoyCandlesPage";
 
 const MainNavigation = () => {
   return (
