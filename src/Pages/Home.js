@@ -1,8 +1,8 @@
+/* eslint-disable jsx-a11y/alt-text */
 import "./Home.css";
 import "./Images/banner.jpg";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { NavLink, Outlet, Link, useNavigate } from "react-router-dom";
-import { Bag, Shop } from "react-bootstrap-icons";
 import CartButton from "../Components/CartButton";
 import { useSelector } from "react-redux";
 import ShopCart from "../Components/ShopCart";
@@ -16,7 +16,7 @@ const Home = () => {
       return shopCartAmount;
     }
     return 0;
-  }); //Liczba wyświetlana przez shopCart
+  });
 
   const showShopCart = () => {
     setIsCart(!isCart);
@@ -30,11 +30,11 @@ const Home = () => {
         </div>
         <div className="d-flex justify-content-center">
           <hr
-            className="mt-1 mb-4"
-            style={{ width: "80%", height: "10px" }}
+            className="mt-1 mb-2"
+            style={{ width: "90%", height: "10px" }}
           ></hr>
         </div>
-        <div className="d-flex justify-content-around">
+        <div className="d-flex justify-content-around flex-wrap">
           <NavLink
             to="aboutus"
             className={({ isActive }) => {
@@ -72,7 +72,7 @@ const Home = () => {
         <div className="d-flex justify-content-center">
           <hr
             className="mt-4 mb-2"
-            style={{ width: "80%", height: "10px" }}
+            style={{ width: "90%", height: "10px" }}
           ></hr>
         </div>
         <CartButton onClick={showShopCart}>{productsAmount}</CartButton>

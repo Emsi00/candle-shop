@@ -35,7 +35,7 @@ const SoyCandles = () => {
               }}
             >
               <PlusSquareFill width="16px" height="16px" />
-              <a style={{ fontSize: "15px" }}>Add to cart</a>
+              <a style={{ fontSize: "15px" }}>Dodaj do koszyka</a>
             </Button>
           </div>
         );
