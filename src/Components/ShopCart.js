@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import SingleProduct from "./SingleProduct";
 import { PlusSquareFill, DashSquareFill } from "react-bootstrap-icons";
 import { addProduct, substractProduct } from "../Redux/Slices/CartSlice";
+import "./style.css";
 const BackDrop = styled.div`
   position: fixed;
   width: 100%;
@@ -37,7 +38,7 @@ const UpperDivShopCart = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow: scroll;
+  overflow: auto;
   margin-top: 50px;
 `;
 const LowerDivShopCart = styled.div`
@@ -70,6 +71,7 @@ const ShopCart = ({ onClick, children }) => {
     <BackDrop>
       <ShopCartDiv>
         <UpperDivShopCart>
+          {/* <div className="scrollbar square scrollbar-lady-lips"> */}
           {products.map((element, index) => {
             return (
               <SingleProductInUpperDiv id={element.id}>
@@ -117,26 +119,26 @@ const ShopCart = ({ onClick, children }) => {
               </SingleProductInUpperDiv>
             );
           })}
+          {/* </div> */}
         </UpperDivShopCart>
+
         <div style={{ marginTop: "5px", fontSize: "20px", fontWeight: "500" }}>
           Łączna suma: ${products.length === 0 ? "0.00" : suma}
         </div>
         <LowerDivShopCart>
           {" "}
-          <Button
-            className="p-3"
-            style={{ borderRadius: "20px" }}
-            onClick={onClick}
-          >
-            Zamknij
+          <Button className="btn-secondary p-2" onClick={onClick}>
+            Zamknij koszyk
           </Button>
-          <Button
-            className="p-3"
-            style={{ borderRadius: "20px" }}
-            onClick={logMyCart}
+          <Button className="btn-success p-2" onClick={logMyCart}>
+            Idź do płatności
+          </Button>
+          {/* <a
+            type="button"
+            style={{ textDecoration: "underline", fontSize: "25px" }}
           >
             Kupuje
-          </Button>
+          </a> */}
         </LowerDivShopCart>
       </ShopCartDiv>
     </BackDrop>
