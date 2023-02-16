@@ -22,7 +22,7 @@ const BackDrop = styled.div`
 `;
 const ShopCartDiv = styled.div`
   width: 500px;
-  height: 500px;
+  height: 600px;
   background-color: white;
   border-radius: 25px;
   display: flex;
@@ -38,6 +38,7 @@ const UpperDivShopCart = styled.div`
   flex-direction: column;
   align-items: center;
   overflow: scroll;
+  margin-top: 50px;
 `;
 const LowerDivShopCart = styled.div`
   width: 80%;
@@ -57,7 +58,7 @@ const SingleProductInUpperDiv = styled.div`
 `;
 const ShopCart = ({ onClick, children }) => {
   const products = useSelector((state) => state.cart.products);
-
+  const suma = useSelector((state) => state.cart.totalPrice.toFixed(2));
   const logMyCart = (event) => {
     event.stopPropagation();
     console.log(products);
@@ -117,6 +118,9 @@ const ShopCart = ({ onClick, children }) => {
             );
           })}
         </UpperDivShopCart>
+        <div style={{ marginTop: "5px", fontSize: "20px", fontWeight: "500" }}>
+          Łączna suma: ${products.length === 0 ? "0.00" : suma}
+        </div>
         <LowerDivShopCart>
           {" "}
           <Button

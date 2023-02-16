@@ -28,16 +28,22 @@ const Home = () => {
     <>
       {isCart && <ShopCart onClick={showShopCart} />}
       <div className="d-flex flex-column homePage">
-        <div className="d-flex justify-content-center p-2">
-          <img src={require("../Pages/Images/banner.jpg")}></img>
+        <div
+          className="d-flex justify-content-center p-2"
+          style={{ top: "0", left: "0" }}
+        >
+          <img
+            src={require("../Pages/Images/banner.jpg")}
+            // style={{ width: "100%", height: "300px" }}
+          ></img>
         </div>
         <div className="d-flex justify-content-center">
-          <hr
-            className="mt-1 mb-2"
-            style={{ width: "90%", height: "10px" }}
-          ></hr>
+          <hr className="mt-1 mb-2" style={{ width: "100%" }}></hr>
         </div>
-        <div className="d-flex justify-content-around flex-wrap">
+        <div
+          className="d-flex justify-content-around align-items-center flex-wrap"
+          style={{ height: "30px" }}
+        >
           <NavLink
             to="aboutus"
             className={({ isActive }) => {
@@ -45,7 +51,7 @@ const Home = () => {
             }}
             end
           >
-            <p className="menuChoice">O nas</p>
+            <p className="menuChoice">O NAS</p>
           </NavLink>
           <NavLink
             to="soycandles"
@@ -53,7 +59,7 @@ const Home = () => {
               return isActive ? "active" : "inActive";
             }}
           >
-            <p className="menuChoice">Świece sojowe</p>
+            <p className="menuChoice">ŚWIECE SOJOWE</p>
           </NavLink>
           <NavLink
             to="sets"
@@ -61,7 +67,7 @@ const Home = () => {
               return isActive ? "active" : "inActive";
             }}
           >
-            <p className="menuChoice">Zestawy</p>
+            <p className="menuChoice">Kolekcje</p>
           </NavLink>
           <NavLink
             to="promotions"
@@ -69,19 +75,22 @@ const Home = () => {
               return isActive ? "active" : "inActive";
             }}
           >
-            <p className="menuChoice">Promocje</p>
+            <p className="menuChoice">PROMOCJE</p>
           </NavLink>
-          <NavLink
+          {/* <NavLink
             to="/settings"
             className={({ isActive }) => {
               return isActive ? "active" : "inActive";
             }}
           >
             <p className="menuChoice">Moje konto</p>
-          </NavLink>
+          </NavLink> */}
         </div>
-        <div className="d-flex justify-content-center">
-          <hr style={{ width: "90%", height: "10px" }}></hr>
+        <div
+          className="d-flex justify-content-center"
+          style={{ marginTop: "0px" }}
+        >
+          <hr style={{ width: "100%", height: "10px" }}></hr>
         </div>
         <CartButton onClick={showShopCart}>{productsQuantity}</CartButton>
         <FacebookIcon />

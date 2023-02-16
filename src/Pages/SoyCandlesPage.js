@@ -16,7 +16,7 @@ const SoyCandles = () => {
 
   return (
     <div
-      className="d-flex flex-row align-items-center flex-wrap"
+      className="d-flex flex-row justify-content-around align-content-start flex-wrap"
       style={{ marginBottom: "40px" }}
     >
       {products.map((element, index) => {
@@ -54,6 +54,7 @@ const SoyCandles = () => {
               >
                 {element.description}
               </label>
+              <label style={{ margin: "5px" }}>${element.price}</label>
               <Button
                 className="m-3 w-50 d-flex justify-content-around align-items-center"
                 onClick={() => {

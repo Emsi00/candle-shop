@@ -8,8 +8,10 @@
   font-size: 25px;
 }
 .menuChoice {
-  font-family: "Lobster", cursive;
+  /* font-family: "Lobster", cursive; */
+  font-family: arial, helvetica, sans-serif;
   color: black;
+  font-size: 20px;
   text-decoration-color: yellow;
 }
 .homePage {
