@@ -10,10 +10,10 @@ import { useState } from "react";
 import FacebookIcon from "../Components/FacebookIcon";
 import InstagramIcon from "../Components/InstagramIcon";
 import TelephoneIcon from "../Components/TelephoneIcon";
-import { Person, Bag } from "react-bootstrap-icons";
 import MyCartButton from "../Components/MyCartButton";
 import MyAccountIcon from "../Components/MyAccountIcon";
-
+import WebTitle from "../Components/WebTitle";
+import Line from "../Components/Line";
 const Home = () => {
   const [isCart, setIsCart] = useState(false);
   const productsQuantity = useSelector((state) => {
@@ -24,6 +24,7 @@ const Home = () => {
     }
     return 0;
   });
+  const isLogged = useSelector((state) => state.login.isLogin);
   const MenuOptions = [
     { to: "aboutus", text: "O NAS" },
     { to: "soycandles", text: "SOY CANDLES" },
@@ -37,6 +38,12 @@ const Home = () => {
     <>
       {isCart && <ShopCart onClick={showShopCart} />}
       <div className="d-flex flex-column homePage">
+        {!isLogged && (
+          <div className="d-flex flex-row justify-content-center">
+            <Link to="/login">Zaloguj się</Link>. Nie masz konta?{"   "}
+            <Link to="/register"> Zarejestruj się.</Link>
+          </div>
+        )}
         <div
           className="d-flex justify-content-around p-2 align-items-center"
           style={{ top: "0", left: "0" }}
@@ -44,26 +51,9 @@ const Home = () => {
           <div className="w-25">
             <img src={require("../Pages/Images/banner.jpg")} width="100%" />
           </div>
-          <div className="vr"></div>
-          <div width="40%">
-            <div className="d-flex flex-column align-items-center">
-              <div>
-                <h1>Candle World</h1>
-              </div>
-              <div className="d-flex justify-content-center">
-                <h6 className="text-muted">Soy Candles </h6>
-              </div>
-            </div>
-          </div>
-          <div className="vr"></div>
-          {/* <div
-            type="button"
-            className="btn btn-outline-dark d-flex flex-row align-items-center justify-content-around"
-            style={{ border: "0px" }}
-          >
-            <Person width="50px" height="50px" />
-            Moje konto
-          </div> */}
+          <Line orientation={true} />
+          <WebTitle />
+          <Line orientation={true} />
           <MyAccountIcon />
           <MyCartButton
             onClick={showShopCart}
@@ -79,13 +69,14 @@ const Home = () => {
           className="d-flex justify-content-around align-items-center flex-wrap"
           style={{ height: "30px" }}
         >
-          {MenuOptions.map((element) => {
+          {MenuOptions.map((element, index) => {
             return (
               <NavLink
                 to={element.to}
                 className={({ isActive }) => {
                   return isActive ? "active" : "inActive";
                 }}
+                key={index}
                 end
               >
                 <p className="menuChoice">{element.text}</p>

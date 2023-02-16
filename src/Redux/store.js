@@ -4,7 +4,11 @@ import cartSlice from "./Slices/CartSlice";
 import SoyCandlesSlice from "./Slices/SoyCandlesSlice";
 
 const store = configureStore({
-  reducer: { cart: cartSlice.reducer, candles: SoyCandlesSlice.reducer },
+  reducer: {
+    cart: cartSlice.reducer,
+    candles: SoyCandlesSlice.reducer,
+    login: loginSlice.reducer,
+  },
 });
 
 export default store;
