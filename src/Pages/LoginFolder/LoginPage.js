@@ -31,9 +31,10 @@ const LoginPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const goToHome = () => {
-    navigate("/aboutus");
+    navigate("..");
   };
   const isLogged = useSelector((state) => state.login.isLogin);
+  const loginData = useSelector((state) => state.login.loginData);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const changeEmail = (event) => {
@@ -101,11 +102,12 @@ const LoginPage = () => {
               size="large"
               onClick={() => {
                 dispatch(loginIn({ email: email, password: password }));
-                setTimeout(() => {
-                  if (isLogged) {
-                    goToHome();
-                  }
-                }, 1000);
+                if (
+                  email === loginData.email &&
+                  password === loginData.password
+                ) {
+                  goToHome();
+                }
               }}
             >
               Login
