@@ -12,8 +12,8 @@ import { PlusSquareFill, DashSquareFill } from "react-bootstrap-icons";
 import { addProduct, substractProduct } from "../Redux/Slices/CartSlice";
 const BackDrop = styled.div`
   position: fixed;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 100;
   display: flex;
@@ -37,6 +37,7 @@ const UpperDivShopCart = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: scroll;
 `;
 const LowerDivShopCart = styled.div`
   width: 80%;

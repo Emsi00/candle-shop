@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-target-blank */
 import { Facebook } from "react-bootstrap-icons";
 
 const FacebookIcon = () => {

@@ -9,6 +9,7 @@ import ShopCart from "../Components/ShopCart";
 import { useState } from "react";
 import FacebookIcon from "../Components/FacebookIcon";
 import InstagramIcon from "../Components/InstagramIcon";
+import TelephoneIcon from "../Components/TelephoneIcon";
 const Home = () => {
   const [isCart, setIsCart] = useState(false);
   const productsQuantity = useSelector((state) => {
@@ -70,16 +71,22 @@ const Home = () => {
           >
             <p className="menuChoice">Promocje</p>
           </NavLink>
+          <NavLink
+            to="/settings"
+            className={({ isActive }) => {
+              return isActive ? "active" : "inActive";
+            }}
+          >
+            <p className="menuChoice">Moje konto</p>
+          </NavLink>
         </div>
         <div className="d-flex justify-content-center">
-          <hr
-            className="mt-4 mb-2"
-            style={{ width: "90%", height: "10px" }}
-          ></hr>
+          <hr style={{ width: "90%", height: "10px" }}></hr>
         </div>
         <CartButton onClick={showShopCart}>{productsQuantity}</CartButton>
         <FacebookIcon />
         <InstagramIcon />
+        <TelephoneIcon />
         <Outlet />
       </div>
     </>
