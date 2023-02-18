@@ -12,7 +12,7 @@ const SoyCandles = () => {
   return (
     <>
       <div
-        className="d-flex flex-row justify-content-around align-content-start flex-wrap"
+        className="d-flex flex-row justify-content-start align-content-start flex-wrap"
         style={{ marginBottom: "40px" }}
       >
         {products.map((element, index) => {

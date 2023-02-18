@@ -1,0 +1,11 @@
+.navlink {
+  text-decoration: none;
+  color: black;
+}
+.activeNavLink {
+  font-weight: 700;
+}
+
+.notActiveNavLink {
+  font-weight: 100;
+}

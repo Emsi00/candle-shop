@@ -45,7 +45,7 @@ const TelephoneIcon = () => {
             fontWeight: "600",
           }}
         >
-          882 595 925
+          123 456 789
         </span>
       )}
     </a>

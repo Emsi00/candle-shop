@@ -1,10 +1,12 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Person } from "react-bootstrap-icons";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 const MyAccountIcon = (props) => {
+  const isLogged = useSelector((state) => state.login.isLogin);
   const navigate = useNavigate();
   const goToAccountSetup = () => {
-    navigate("/settings");
+    if (isLogged) navigate("/settings");
   };
   return (
     <div

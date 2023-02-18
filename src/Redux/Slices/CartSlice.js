@@ -11,7 +11,7 @@ const cartSlice = createSlice({
         ({ id }) => id === action.payload.id
       );
       if (index === -1) {
-        console.log("-1 chuj");
+        console.log("-1");
         return {
           products: [
             ...state.products,
