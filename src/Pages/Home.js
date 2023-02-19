@@ -14,7 +14,9 @@ import MyCartButton from "../Components/MyCartButton";
 import MyAccountIcon from "../Components/MyAccountIcon";
 import WebTitle from "../Components/WebTitle";
 import Line from "../Components/Line";
+import { useMediaQuery } from "@mui/material";
 const Home = () => {
+  const matches = useMediaQuery("(min-width:600px)");
   const [isCart, setIsCart] = useState(false);
   const productsQuantity = useSelector((state) => {
     if (state.cart.products.length !== 0) {
@@ -27,8 +29,8 @@ const Home = () => {
   const isLogged = useSelector((state) => state.login.isLogin);
   const MenuOptions = [
     { to: "aboutus", text: "O NAS" },
-    { to: "soycandles", text: "SOY CANDLES" },
-    { to: "sets", text: "Zestawy" },
+    { to: "soycandles", text: "ŚWIECE SOJOWE" },
+    { to: "sets", text: "ZESTAWY" },
     { to: "promotions", text: "PROMOCJE" },
   ];
   const showShopCart = () => {
@@ -39,35 +41,54 @@ const Home = () => {
       {isCart && <ShopCart onClick={showShopCart} />}
       <div className="d-flex flex-column homePage">
         {!isLogged && (
-          <div className="d-flex flex-row justify-content-center">
+          <div
+            className={`d-flex ${
+              !matches ? "flex-column" : "flex-row"
+            } justify-content-center align-items-center`}
+          >
             <Link to="/login">Zaloguj się</Link>. Nie masz konta?{"   "}
             <Link to="/register"> Zarejestruj się.</Link>
           </div>
         )}
         <div
-          className="d-flex justify-content-around p-2 align-items-center"
+          className={`d-flex justify-content-around p-2 ${
+            !matches ? "flex-column" : "flex-row"
+          } align-items-center`}
           style={{ top: "0", left: "0" }}
         >
-          <div className="w-25">
-            <img src={require("../Pages/Images/banner.jpg")} width="100%" />
-          </div>
-          <Line orientation={true} />
+          {!matches ? (
+            <>
+              <div style={{ width: "300px" }}>
+                <img src={require("../Pages/Images/banner.jpg")} width="100%" />
+              </div>
+              <Line orientation={true} />
+            </>
+          ) : (
+            <>
+              <div className="w-25">
+                <img src={require("../Pages/Images/banner.jpg")} width="100%" />
+              </div>
+              <Line orientation={true} />
+            </>
+          )}
           <WebTitle />
-          <Line orientation={true} />
+          <Line orientation={matches ? true : false} />
           <MyAccountIcon />
           <MyCartButton
             onClick={showShopCart}
             productsQuantity={productsQuantity}
           />
-
-          <div></div>
         </div>
-        <div className="d-flex justify-content-center">
+        <div
+          className="d-flex justify-content-center"
+          style={{ marginBottom: "15px" }}
+        >
           <hr className="mt-1 mb-2" style={{ width: "100%" }}></hr>
         </div>
         <div
-          className="d-flex justify-content-around align-items-center flex-wrap"
-          style={{ height: "30px" }}
+          className={`d-flex justify-content-around ${
+            matches ? "flex-row" : "flex-column"
+          } align-items-center`}
         >
           {MenuOptions.map((element, index) => {
             return (

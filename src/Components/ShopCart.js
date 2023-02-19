@@ -22,8 +22,8 @@ const BackDrop = styled.div`
   align-items: center;
 `;
 const ShopCartDiv = styled.div`
-  width: 500px;
-  height: 600px;
+  width: 70%;
+  height: 80%;
   background-color: white;
   border-radius: 25px;
   display: flex;
@@ -34,7 +34,7 @@ const ShopCartDiv = styled.div`
 const UpperDivShopCart = styled.div`
   width: 80%;
   height: 70%;
-  border: 1px solid black;
+  // border: 1px solid black;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -71,7 +71,6 @@ const ShopCart = ({ onClick, children }) => {
     <BackDrop>
       <ShopCartDiv>
         <UpperDivShopCart>
-          {/* <div className="scrollbar square scrollbar-lady-lips"> */}
           {products.map((element, index) => {
             return (
               <SingleProductInUpperDiv id={element.id}>
@@ -116,29 +115,30 @@ const ShopCart = ({ onClick, children }) => {
                     }}
                   />
                 </div>
+                <div className="d-flex justify-content-center align-items-center flex-row">
+                  <h6>${element.price * element.amount}</h6>
+                </div>
               </SingleProductInUpperDiv>
             );
           })}
-          {/* </div> */}
         </UpperDivShopCart>
-
-        <div style={{ marginTop: "5px", fontSize: "20px", fontWeight: "500" }}>
-          Łączna suma: ${products.length === 0 ? "0.00" : suma}
-        </div>
         <LowerDivShopCart>
           {" "}
-          <Button className="btn-secondary p-2" onClick={onClick}>
+          <Button
+            className="btn-secondary p-2"
+            onClick={onClick}
+            // style={{ maxWidth: "80px", width: "10%" }}
+          >
             Zamknij koszyk
           </Button>
+          <div
+            style={{ marginTop: "5px", fontSize: "20px", fontWeight: "500" }}
+          >
+            Łączna suma: ${products.length === 0 ? "0.00" : suma}
+          </div>
           <Button className="btn-success p-2" onClick={logMyCart}>
             Idź do płatności
           </Button>
-          {/* <a
-            type="button"
-            style={{ textDecoration: "underline", fontSize: "25px" }}
-          >
-            Kupuje
-          </a> */}
         </LowerDivShopCart>
       </ShopCartDiv>
     </BackDrop>

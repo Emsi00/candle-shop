@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { useNavigate } from "react-router-dom";
 
 const initialState = {
   loginData: { email: "admin@test.com", password: "1234" },
@@ -20,7 +19,33 @@ const loginSlice = createSlice({
       console.log("Poprawne dane");
       return { loginData: { ...state.loginData }, isLogin: true };
     },
+    changePassword(state, action) {
+      if (
+        state.loginData.password === action.payload.oldPassword &&
+        action.payload.newPasswordFirst === action.payload.newPasswordSecond
+      ) {
+        console.log("Poprawne dane");
+        return {
+          loginData: {
+            email: state.loginData.email,
+            password: action.payload.newPasswordFirst,
+          },
+          isLogin: state.isLogin,
+        };
+      }
+      console.log("Niepoprawne dane");
+      return {
+        loginData: {
+          email: state.loginData.email,
+          password: state.loginData.password,
+        },
+        isLogin: state.isLogin,
+      };
+    },
+    // changeEmail(state, password) {
+    //   return;
+    // },
   },
 });
 export default loginSlice;
-export const { loginIn } = loginSlice.actions;
+export const { loginIn, changePassword } = loginSlice.actions;

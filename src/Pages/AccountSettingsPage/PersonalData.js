@@ -54,39 +54,34 @@ const PersonalData = () => {
   return (
     <div className="d-flex align-items-center flex-column ">
       <h1>Dane osobowe</h1>
-      <div style={{ margin: "5px" }}>
-        <a>Imię</a>
-        <input onChange={getName} defaultValue={data.name} />
-      </div>
-      <div style={{ margin: "5px" }}>
-        <a>Nazwisko</a>
-        <input onChange={getSurname} defaultValue={data.surname} />
-      </div>
-      <div style={{ margin: "5px" }}>
-        <a>Data urodzenia</a>
-        <input
-          type="date"
-          onChange={getBirthDate}
-          defaultValue={data.birthDate}
-        />
-      </div>
-      <div style={{ margin: "5px" }}>
-        <a>Miasto</a>
-        <input onChange={getCity} defaultValue={data.city} />
-      </div>
-      <div style={{ margin: "5px" }}>
-        <a>Kod pocztowy</a>
-        <input onChange={getZipCode} defaultValue={data.zipCode} />
-      </div>
-      <div style={{ margin: "5px" }}>
-        <a>Ulica</a>
-        <input onChange={getStreet} defaultValue={data.street} />
-      </div>
-      <div style={{ margin: "5px" }}>
-        <a>Numer mieszkania/domu</a>
-        <input onChange={getHouseNum} defaultValue={data.houseNumber} />
-      </div>
+
+      <a>Imię</a>
+      <input onChange={getName} defaultValue={data.name} />
+
+      <a>Nazwisko</a>
+      <input onChange={getSurname} defaultValue={data.surname} />
+
+      <a>Data urodzenia</a>
+      <input
+        type="date"
+        onChange={getBirthDate}
+        defaultValue={data.birthDate}
+      />
+
+      <a>Miasto</a>
+      <input onChange={getCity} defaultValue={data.city} />
+
+      <a>Kod pocztowy</a>
+      <input onChange={getZipCode} defaultValue={data.zipCode} />
+
+      <a>Ulica</a>
+      <input onChange={getStreet} defaultValue={data.street} />
+
+      <a>Numer mieszkania/domu</a>
+      <input onChange={getHouseNum} defaultValue={data.houseNumber} />
+
       <Button
+        style={{ marginTop: "10px", marginBottom: "60px" }}
         className={isSave ? "btn-secondary" : "btn-primary"}
         onClick={save}
       >
